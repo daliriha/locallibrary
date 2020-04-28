@@ -1,0 +1,9 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+  <h1>Name: {{ author.last_name }}</h1>
+
+  <p><strong>Author:</strong> <a href="">{{ book.author }}</a></p> <!-- author detail link not yet defined -->
+  <p><strong>Books:</strong> {% for book in author.book_set.all %} <a href="{{book.get_absolute_url}}">{{ book }}</a> {% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+{% endblock %}
